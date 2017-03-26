@@ -1,2 +1,2 @@
-# vTracer
-rkh's framework trace visualizer
+# vTrazer
+Rkh's framework trace visualizer
