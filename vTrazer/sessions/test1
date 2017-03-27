@@ -1,0 +1,17 @@
+[General]
+parsertype=rkhparsermodel
+
+[filters]
+1\conditions\1\casesencitive=false
+1\conditions\1\colindex=0
+1\conditions\1\regstr=2
+1\conditions\size=1
+1\index=0
+1\status=true
+2\conditions\1\casesencitive=false
+2\conditions\1\colindex=1
+2\conditions\1\regstr=ww
+2\conditions\size=1
+2\index=1
+2\status=false
+size=2

@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/img">
+        <file alias="logo">img/logo1.png</file>
+        <file alias="logoabout">img/logo2.png</file>
+        <file alias="results">img/logo4.png</file>
+        <file alias="online">img/StatusOnline-icon.png</file>
+        <file alias="offline">img/StatusOffline-icon.png</file>
+        <file alias="filter">img/Filter-List-icon.png</file>
+        <file alias="graph">img/graph-icon.png</file>
+        <file alias="add">img/bcross.png</file>
+        <file alias="tools">img/Toolbox-icon.png</file>
+        <file alias="genconfig">img/app-settings-icon.png</file>
+        <file alias="watch">img/Puppy-10-icon.png</file>
+        <file>img/arrow-down-icon.png</file>
+        <file alias="splash">img/splash.png</file>
+        <file alias="manual">img/Moleskine-Book-icon.png</file>
+        <file alias="close">img/close.png</file>
+        <file alias="company">img/mm.png</file>
+        <file alias="run">img/rocket-launch-run-icon.png</file>
+        <file alias="hide">img/minimize-con.png</file>
+        <file alias="clear">img/Actions-edit-clear-icon.png</file>
+        <file alias="leftarrow">img/Arrows-Left-icon.png</file>
+        <file alias="rightarrow">img/Arrows-Right-icon.png</file>
+        <file alias="wcascade">img/application-cascade-icon.png</file>
+        <file alias="wtile">img/application-tile-vertical-icon.png</file>
+    </qresource>
+</RCC>
