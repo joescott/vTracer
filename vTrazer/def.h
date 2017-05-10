@@ -2,17 +2,17 @@
 #define DEF_H
 
 #define PROGRAM_NAME            "vTrazer"
-#define PROGRAM_VERSION         "0.1"
-#define PROGRAM_YEAR_RELEASE    "2013"
-#define PROGRAM_COMPANY         "Raccoon Systems"
-#define PROGRAM_AUTOR           "Jorge Esteban Courett"
+#define PROGRAM_VERSION         "0.2"
+#define PROGRAM_YEAR_RELEASE    "2017"
+#define PROGRAM_COMPANY         "Vortex"
+#define PROGRAM_AUTOR           "JEC"
 #define PROGRAM_LOGO            "<img src=\":/img/logoabout\">"
 
 #define PROGRAM_ABOUT       PROGRAM_LOGO\
                             +tr("<center> %1 Version %2 </center>")\
                                 .arg(PROGRAM_NAME)\
                                 .arg(PROGRAM_VERSION)\
-                            +tr("<p>This piece of junk is the best software ever written.</p>")\
+                            +tr("<p>RKH tracer log analyzer.</p>")\
                             +tr("<center>&copy; %1 - %2 - %3 </center>")\
                                 .arg(PROGRAM_COMPANY)\
                                 .arg(PROGRAM_YEAR_RELEASE)\
@@ -62,6 +62,7 @@
 #define FILTER_DFT_COLINDEX             "colindex"
 #define FILTER_DFT_REGSTR               "regstr"
 #define FILTER_DFT_CASESENCITIVE        "casesencitive"
+#define FILTER_DFT_TYPE        			"type"
 
 /**
  *  Colors

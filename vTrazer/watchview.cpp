@@ -18,6 +18,8 @@ WatchView::WatchView(QWidget *parent) :
 
     wm = model;
     ui->watchView->setModel(model);
+    ui->watchView->setColumnWidth(0,70);
+    ui->watchView->setColumnWidth(1,160);
 }
 
 WatchView::~WatchView()

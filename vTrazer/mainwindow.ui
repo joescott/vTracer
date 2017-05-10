@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>578</width>
-    <height>346</height>
+    <height>348</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -103,7 +103,7 @@
              <x>0</x>
              <y>0</y>
              <width>319</width>
-             <height>261</height>
+             <height>257</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -127,6 +127,12 @@
               <property name="alternatingRowColors">
                <bool>true</bool>
               </property>
+              <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
               <attribute name="verticalHeaderStretchLastSection">
                <bool>false</bool>
               </attribute>
@@ -438,7 +444,7 @@
      <x>0</x>
      <y>0</y>
      <width>578</width>
-     <height>19</height>
+     <height>25</height>
     </rect>
    </property>
    <property name="defaultUp">

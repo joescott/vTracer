@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>LoadFileProgressBar</class>
  <widget class="QDialog" name="LoadFileProgressBar">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -10,14 +13,33 @@
     <height>64</height>
    </rect>
   </property>
+  <property name="maximumSize">
+   <size>
+    <width>363</width>
+    <height>64</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Loading Data</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="vTrazer.qrc">
+    <normaloff>:/img/logo</normaloff>:/img/logo</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
     <number>0</number>
    </property>
-   <property name="margin">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
     <number>0</number>
    </property>
    <item>
@@ -51,7 +73,16 @@
         <property name="spacing">
          <number>0</number>
         </property>
-        <property name="margin">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
          <number>0</number>
         </property>
         <item>
@@ -76,7 +107,16 @@
         <property name="spacing">
          <number>0</number>
         </property>
-        <property name="margin">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
          <number>0</number>
         </property>
         <item>
@@ -113,6 +153,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="vTrazer.qrc"/>
+ </resources>
  <connections/>
 </ui>

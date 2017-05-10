@@ -3,7 +3,7 @@
 # Project created by QtCreator 2013-02-24T17:19:55
 #
 #-------------------------------------------------
-include(../third_party/common/common.pri)
+#include(../third_party/common/common.pri)
 #include(../third_party/5waybutton/5waybutton.pri)
 #include(../third_party/basicdialgauge/basicdialgauge.pri)
 #include(../third_party/basicgraph/basicgraph.pri)
@@ -11,7 +11,7 @@ include(../third_party/common/common.pri)
 #include(../third_party/scrolldial/scrolldial.pri)
 #include(../third_party/scrollwheel/scrollwheel.pri)
 #include(../third_party/svgbutton/svgbutton.pri)
-include(../third_party/svgdialgauge/svgdialgauge.pri)
+#include(../third_party/svgdialgauge/svgdialgauge.pri)
 #include(../third_party/svgslideswitch/svgslideswitch.pri)
 #include(../third_party/svgtoggleswitch/svgtoggleswitch.pri)
 

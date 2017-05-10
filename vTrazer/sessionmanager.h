@@ -43,7 +43,6 @@ public:
 
     //Begin     --- Filters
     QList<Filter *> filters;
-
     void         addFilter(Filter *filter);
     void         delFilter(int index);
     void         enableFilter(int index, bool checked);

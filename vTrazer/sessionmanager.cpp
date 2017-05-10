@@ -34,6 +34,8 @@ void SessionManager::saveSession(QString file)
 {
     QSettings set(file, QSettings::IniFormat);
 
+    set.clear();
+
     //Parser
     set.setValue(PARSER_DFT_TYPE, m_qs->value(CF_APP_PARSER).toString());
 
@@ -47,6 +49,7 @@ void SessionManager::saveSession(QString file)
        set.setArrayIndex(i);
        set.setValue(FILTER_DFT_INDEX,  f->getIndex());
        set.setValue(FILTER_DFT_STATUS, f->isEnabled());
+       set.setValue(FILTER_DFT_TYPE,   f->type);
 
        cflist = f->colFilters;
        set.beginWriteArray(FILTER_CONDITION_DFT_ARRAY);
@@ -89,12 +92,14 @@ void SessionManager::openSession(QString file)
    QList<ColumnFilter *> cflist;
    for(int i = 0; i < fsize; ++i)
    {
-        ModelFilterDefinition mfd = rapp->getFilterDefinition(0);
+        int filter_type = set.value(QString("%1/%2").arg(i+1).arg(FILTER_DFT_TYPE)).toInt();
+        ModelFilterDefinition mfd = rapp->getFilterDefinition(filter_type);
         Filter *f = new Filter(&mfd, this);
         addFilter(f);
         set.setArrayIndex(i);
         f->setIndex(set.value(FILTER_DFT_INDEX).toInt());
         f->filterEnable(set.value(FILTER_DFT_STATUS).toBool());
+        f->type = filter_type;
 
         cflist = f->colFilters;
         cfsize = set.beginReadArray(FILTER_CONDITION_DFT_ARRAY);

@@ -12,6 +12,7 @@ public:
     QWidget *itemAddDefinition(int index);
     void itemDelDefinition(int index);
     void addFilterFromSession(Filter *filter);
+    void signalsEnable(Filter *filter);
 
 private slots:
     void enableAllItems(bool checked);

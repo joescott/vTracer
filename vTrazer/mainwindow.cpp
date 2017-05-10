@@ -11,7 +11,7 @@
 #include "proxymodel.h"
 #include "itemDelegate.h"
 
-#include "qtsvgdialgauge.h"
+//#include "qtsvgdialgauge.h"
 
 #include <QStateMachine>
 #include <QMessageBox>
@@ -70,6 +70,7 @@ MainWindow::MainWindow(QSettings *qs,QWidget *parent) :
             this,SLOT(watchsChanged()));
     toolBox.addItem(watchTool,QIcon(":img/watch"),tr("Watchs"));
 
+#if 0
     QtSvgDialGauge *gauge = new QtSvgDialGauge;
     gauge->setSkin("Tachometer");
     gauge->setNeedleOrigin(0.486, 0.466);
@@ -78,6 +79,7 @@ MainWindow::MainWindow(QSettings *qs,QWidget *parent) :
     gauge->setStartAngle(-125);
     gauge->setEndAngle(125);
     toolBox.addItem(gauge,QIcon(":img/watch"),tr("Gaugue"));
+#endif
 
     ui->ToolsDockWidget->setWidget(&toolBox);
 
@@ -388,6 +390,7 @@ void MainWindow::filtersChanged()
 void MainWindow::addFilterFromSession(Filter *filter)
 {
     filterTool->addItemFromSession(filter);
+    filterTool->signalsEnable(filter);
 }
 
 /******************************************************************************/
@@ -421,16 +424,19 @@ void MainWindow::watchTrigger(QByteArray line, int row)
         for(int c = 0; c < cflist.count(); ++c)
         {
             ColumnFilter *cf = cflist.at(c);
-
-            QRegExp regExp(cf->getRegExpStr(),
-                           cf->getFilterCaseSencitive()?
-                               Qt::CaseSensitive:Qt::CaseInsensitive);
-            prtn = prtn && sm.sm->data(sm.sm->index(row,c)).toString().contains(regExp);
+            QModelIndex m = sm.sm->index(row,cf->getFilterColIndex());
+            QString s = sm.sm->data(m).toString();
+            QRegularExpression re(cf->getRegExpStr(),
+                                  cf->getFilterCaseSencitive()?
+                                      QRegularExpression::NoPatternOption:
+                                      QRegularExpression::CaseInsensitiveOption);
+            QRegularExpressionMatch match = re.match(s);
+            prtn &= match.hasMatch();
         }
         if(prtn)
         {
             watchView->addAlarm(line);
-            out.append(line.append(">>>>ALARMA"));
+            //out.append(line.append(">>>>ALARMA"));
         }
 
 

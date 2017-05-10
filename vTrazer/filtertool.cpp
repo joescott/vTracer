@@ -32,6 +32,14 @@ void FilterTool::addFilterFromSession(Filter *filter)
    addItemFromSession(filter);
 }
 
+void FilterTool::signalsEnable(Filter *filter)
+{
+   connect(filter,SIGNAL(deleteFilter(int)),
+            this,SLOT(deleteItem(int)));
+   connect(filter,SIGNAL(enableFilter(bool)),
+            this,SLOT(enableItem(bool)));
+}
+
 void FilterTool::enableAllItems(bool checked)
 {
    sm->enableAllFilters(checked);

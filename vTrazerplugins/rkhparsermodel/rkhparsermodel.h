@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QtGui>
+#include <QList>
 #include "parsermodelinterface.h"
 #include "modelfilterdefinition.h"
 #include "modelwatchdefinition.h"
@@ -19,6 +20,12 @@ public:
     QStringList getFiltersTypes();
     ModelFilterDefinition getFilter(int filterType);
     ModelWatchDefinition getWatch(int watchType);
+};
+
+enum class RKHFilterTypes
+{
+    DEFAULT,
+    FWK_OBJ
 };
 
 #endif

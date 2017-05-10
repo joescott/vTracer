@@ -15,7 +15,6 @@
         <file alias="splash">img/splash.png</file>
         <file alias="manual">img/Moleskine-Book-icon.png</file>
         <file alias="close">img/close.png</file>
-        <file alias="company">img/mm.png</file>
         <file alias="run">img/rocket-launch-run-icon.png</file>
         <file alias="hide">img/minimize-con.png</file>
         <file alias="clear">img/Actions-edit-clear-icon.png</file>
@@ -23,5 +22,6 @@
         <file alias="rightarrow">img/Arrows-Right-icon.png</file>
         <file alias="wcascade">img/application-cascade-icon.png</file>
         <file alias="wtile">img/application-tile-vertical-icon.png</file>
+        <file alias="company">img/rkh.png</file>
     </qresource>
 </RCC>

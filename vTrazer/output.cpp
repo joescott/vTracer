@@ -2,7 +2,7 @@
 #include "def.h"
 #include "ui_output.h"
 
-#include "qtsvgdialgauge.h"
+//#include "qtsvgdialgauge.h"
 
 Output::Output(QWidget *parent) :
     QWidget(parent),
