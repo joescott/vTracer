@@ -5,10 +5,10 @@
 Filter::Filter(ModelFilterDefinition *mfd, SessionManager *sessionManager,
                 int type, QWidget *parent) :
     QFrame(parent),
+    type(type),
     editAllow(false),
     ui(new Ui::Filter),
     enabled(false),
-    type(type),
     sm(sessionManager)
 {
     ui->setupUi(this);

@@ -1,0 +1,95 @@
+          0| [  0] | FWK | TCFG       : Update RKH Configuration from client
+                                      | RKH_VERSION                   = 2.4.06
+                                      | TRZ_RKH_CFGPORT_TRC_SIZEOF_TSTAMP= 32
+                                      | TRZ_RKH_CFGPORT_TRC_SIZEOF_PTR= 32
+                                      | TRZ_RKH_CFG_FWK_SIZEOF_EVT    = 8
+                                      | TRZ_RKH_CFG_FWK_SIZEOF_EVT_SIZE= 16
+                                      | TRZ_RKH_CFG_FWK_MAX_EVT_POOL  = 4
+                                      | TRZ_RKH_CFG_RQ_GET_LWMARK_EN  = 1
+                                      | TRZ_RKH_CFG_RQ_SIZEOF_NELEM   = 8
+                                      | TRZ_RKH_CFG_MP_GET_LWM_EN     = 1
+                                      | TRZ_RKH_CFG_MP_SIZEOF_NBLOCK  = 8
+                                      | TRZ_RKH_CFG_MP_SIZEOF_BSIZE   = 8
+                                      | TRZ_RKH_CFG_SMA_TRC_SNDR_EN   = 1
+                                      | TRZ_RKH_CFG_TMR_SIZEOF_NTIMER = 16
+                                      | TRZ_RKH_CFG_TRC_RTFIL_EN      = 1
+                                      | TRZ_RKH_CFG_TRC_USER_TRACE_EN = 0
+                                      | TRZ_RKH_CFG_TRC_ALL_EN        = 1
+                                      | TRZ_RKH_CFG_TRC_MP_EN         = 0
+                                      | TRZ_RKH_CFG_TRC_RQ_EN         = 0
+                                      | TRZ_RKH_CFG_TRC_SMA_EN        = 1
+                                      | TRZ_RKH_CFG_TRC_TMR_EN        = 0
+                                      | TRZ_RKH_CFG_TRC_SM_EN         = 1
+                                      | TRZ_RKH_CFG_TRC_FWK_EN        = 1
+                                      | TRZ_RKH_CFG_TRC_ASSERT_EN     = 1
+                                      | TRZ_RKH_CFG_TRC_RTFIL_SMA_EN  = 1
+                                      | TRZ_RKH_CFG_TRC_RTFIL_SIGNAL_EN= 1
+                                      | TRZ_RKH_CFG_TRC_NSEQ_EN       = 1
+                                      | TRZ_RKH_CFG_TRC_TSTAMP_EN     = 1
+                                      | TRZ_RKH_CFG_TRC_CHK_EN        = 1
+                                      | tstamp_tick_hz                = 1000
+
+
+   19088743| [  0] | FWK | OBJ        : obj=0x0037E420, nm=receiver
+   19088743| [  1] | FWK | OBJ        : obj=0x0037E470, nm=sender
+   19088743| [  2] | FWK | OBJ        : obj=0x0037E4B4, nm=state
+   19088743| [  3] | FWK | OBJ        : obj=0x0037E4A0, nm=tmr
+   19088743| [  4] | FWK | SIG        : sig=3, nm=SIGNAL
+   19088743| [  5] | RQ  | INIT       : q=0X37E450, ao=receiver, nelem=40
+   19088743| [  6] | RQ  | GET        : q=0X37E450, nelem=40
+   19088743| [  7] | RQ  | FIFO       : q=0X37E450, nelem=40, nmin=20
+   19088743| [  8] | RQ  | LIFO       : q=0X37E450, nelem=40, nmin=20
+   19088743| [  9] | RQ  | FULL       : q=0X37E450
+   19088743| [ 10] | RQ  | DPT        : q=0X37E450
+   19088743| [ 11] | RQ  | GET_LAST   : q=0X37E450
+   19088743| [ 12] | SMA | ACT        : ao=receiver, prio=0, size=16
+   19088743| [ 13] | SMA | TERM       : ao=receiver, prio=0
+   19088743| [ 14] | SMA | GET        : ao=receiver, sig=SIGNAL, pid=5, rc=7, nelem=4, nmin=2, rt=-1, nseq=0
+   19088743| [ 15] | SMA | FIFO       : ao=receiver, sig=SIGNAL, snr=sender, pid=5, rc=7, nelem=4, nmin=2, nseq=1
+   19088743| [ 16] | SMA | LIFO       : ao=receiver, sig=SIGNAL, snr=sender, pid=5, rc=7, nelem=4, nmin=2, nseq=2
+   19088743| [ 17] | SMA | REG        : ao=receiver, prio=0
+   19088743| [ 18] | SMA | UNREG      : ao=receiver, prio=0
+   19088743| [ 19] | SMA | DCH        : ao=receiver, sig=SIGNAL, st=state
+   19088743| [ 20] | SM  | INIT       : ao=receiver, ist=state
+   19088743| [ 21] | SM  | CLRH       : ao=receiver, h=state
+   19088743| [ 22] | SM  | TRN        : ao=receiver, sst=state, tst=state
+   19088743| [ 23] | SM  | STATE      : ao=receiver, nxtst=state
+   19088743| [ 24] | SM  | ENSTATE    : ao=receiver, st=state
+   19088743| [ 25] | SM  | EXSTATE    : ao=receiver, st=state
+   19088743| [ 26] | SM  | NENEX      : ao=receiver, nen=4, nex=8
+   19088743| [ 27] | SM  | NTRNACT    : ao=receiver, nta=4, nts=8
+   19088743| [ 28] | SM  | TS_STATE   : ao=receiver, st=state
+   19088743| [ 29] | SM  | EVT_PROC   : ao=receiver
+   19088743| [ 30] | SM  | EVT_NFOUND : ao=receiver, sig=SIGNAL
+   19088743| [ 31] | SM  | GRD_FALSE  : ao=receiver
+   19088743| [ 32] | SM  | CND_NFOUND : ao=receiver
+   19088743| [ 33] | SM  | UNKN_STATE : ao=receiver
+   19088743| [ 34] | SM  | EX_HLEVEL  : ao=receiver
+   19088743| [ 35] | SM  | EX_TSEG    : ao=receiver
+   19088743| [ 36] | SM  | EXE_ACT    : Effect, ao=receiver, st=state, fn=0X5A5A5A
+   19088743| [ 37] | TIM | INIT       : t=tmr, sig=SIGNAL
+   19088743| [ 38] | TIM | START      : t=tmr, ao=receiver, nt=20, per=10
+   19088743| [ 39] | TIM | STOP       : t=tmr, nt=20, per=10
+   19088743| [ 40] | TIM | TOUT       : t=tmr, sig=SIGNAL, ao=receiver
+   19088743| [ 41] | TIM | REM        : t=tmr
+   19088743| [ 42] | FWK | EN         :  
+   19088743| [ 43] | FWK | EX         :  
+   19088743| [ 44] | FWK | EPREG      : ep=2, ss=40, es=100, ps=200
+   19088743| [ 45] | FWK | AE         : es=2, sig=SIGNAL, pid=5, rc=7, nb=1, nmin=2, actor=receiver
+   19088743| [ 46] | FWK | GC         : sig=SIGNAL, pid=5, rc=2
+   19088743| [ 47] | FWK | GCR        : sig=SIGNAL, pid=5, rc=7, nb=1, nmin=2, actor=receiver
+   19088743| [ 48] | FWK | DEFER      : q=0X37E450, sig=SIGNAL
+   19088743| [ 49] | FWK | RCALL      : ao=receiver, sig=SIGNAL
+   19088743| [ 50] | FWK | OBJ        : obj=0x0037E420, nm=receiver
+   19088743| [ 51] | FWK | SIG        : sig=3, nm=SIGNAL
+   19088743| [ 52] | FWK | FUN        : fn=0x00330D20, nm=dummyFunc
+   19088743| [ 53] | FWK | TUSR       : ut=1, nm=USERT
+   19088743| [ 54] | FWK | SYNC_EVT   : fn=dummyFunc, snr=sender, ao=receiver
+   19088743| [ 55] | FWK | ASSERT     : (20), file.c
+   19088743| [ 56] | FWK | AO         : obj=0x0037E420, nm=receiver
+   19088743| [ 57] | FWK | PSTATE     : ao=receiver, obj=0x0037E4B4, nm=state
+   19088743| [ 58] | FWK | PSTATE     : ao=receiver, obj=0x0037E4B4, nm=state
+   19088743| [ 59] | FWK | TIMER      : obj=0x0037E4A0, nm=tmr
+   19088743| [ 60] | FWK | EPOOL      : ep=1, nm=ep0
+   19088743| [ 61] | FWK | QUEUE      : obj=0x0037E450, nm=rq
+   19088743| [ 62] | FWK | ACTOR      : obj=0x0037E420, nm=receiver

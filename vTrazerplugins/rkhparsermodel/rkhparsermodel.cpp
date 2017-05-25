@@ -4,6 +4,7 @@
 
 QAbstractItemModel *RKHParserModel::createModel(QWidget *parent)
 {
+    Q_UNUSED(parent);
     QStandardItemModel *model = new QStandardItemModel(0, 5);
 
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Timestamp"));

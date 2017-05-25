@@ -18,8 +18,8 @@ public:
     explicit itemTool(SessionManager *sessionManager,QWidget *parent = 0);
     ~itemTool();
     void addTypes(QStringList list);
-    virtual QWidget *itemAddDefinition(int index){return 0;}
-    virtual void itemDelDefinition(int index){}
+    virtual QWidget *itemAddDefinition(int index){Q_UNUSED(index);return 0;}
+    virtual void itemDelDefinition(int index){Q_UNUSED(index);}
     void addItemFromSession(QWidget *widget);
     void deleteAllItems();
 
@@ -30,7 +30,7 @@ signals:
 public slots:
     void deleteItem(int index);
     void enableItem(bool status);
-    virtual void enableAllItems(bool checked){}
+    virtual void enableAllItems(bool checked){Q_UNUSED(checked);}
 
 private slots:
     void on_addItemButton_clicked();

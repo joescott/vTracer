@@ -11,15 +11,18 @@ QWidget *FilterTool::itemAddDefinition(int index)
    connect(f,SIGNAL(enableFilter(bool)),
             this,SLOT(enableItem(bool)));
 
-   connect(this, SIGNAL(allItemsEnable(bool)),
-           this, SLOT(enableAllItems(bool)));
-
    return f;
 }
 
 void FilterTool::itemDelDefinition(int index)
 {
     sm->delFilter(index);
+}
+
+void FilterTool::signalsGeneralEnable()
+{
+   connect(this, SIGNAL(allItemsEnable(bool)),
+           this, SLOT(enableAllItems(bool)));
 }
 
 void FilterTool::addFilterFromSession(Filter *filter)

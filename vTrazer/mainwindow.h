@@ -57,7 +57,7 @@ public slots:
     void About();
     void sessionClear();
     void addFilterFromSession(Filter *filter);
-    void addWatchFromSession(Filter *filter);
+    void addWatchFromSession(Watch *watch);
     void appReadyRead(QByteArray line, int row);
     void appErrorRead(QByteArray line);
     void appEndReadFile();
@@ -65,6 +65,7 @@ public slots:
     void filtersChanged();
     void watchsChanged();
     void watchTrigger(QByteArray line, int row);
+    void watchSelected(int row);
 
 private slots:
     void on_actionConfigure_triggered();

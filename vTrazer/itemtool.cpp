@@ -68,6 +68,9 @@ void itemTool::addItemFromSession(QWidget *widget)
 void itemTool::deleteAllItems()
 {
   QLayoutItem *item;
-  while ((item = ui->ItemToolArea->layout()->takeAt(1)))
-        delete item;
+  while((item = ui->ItemToolArea->layout()->takeAt(1)))
+  {
+      item->widget()->close();
+      delete item;
+  }
 }

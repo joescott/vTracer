@@ -52,6 +52,7 @@
 /**
  * Session File
  */
+#define CF_SESSION_FILE 				"SESSION_FILE"
 /** Parser */
 #define PARSER_DFT_TYPE                 "parsertype"
 /** Filters */
@@ -63,6 +64,15 @@
 #define FILTER_DFT_REGSTR               "regstr"
 #define FILTER_DFT_CASESENCITIVE        "casesencitive"
 #define FILTER_DFT_TYPE        			"type"
+/** Watchs */
+#define WATCH_DFT_ARRAY                 "watches"
+#define WATCH_CONDITION_DFT_ARRAY       "conditions"
+#define WATCH_DFT_INDEX                 "index"
+#define WATCH_DFT_STATUS                "status"
+#define WATCH_DFT_COLINDEX              "colindex"
+#define WATCH_DFT_REGSTR                "regstr"
+#define WATCH_DFT_CASESENCITIVE         "casesencitive"
+#define WATCH_DFT_TYPE        	 	    "type"
 
 /**
  *  Colors

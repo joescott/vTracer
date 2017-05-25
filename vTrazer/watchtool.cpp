@@ -32,6 +32,21 @@ void WatchTool::addWatchFromSession(Watch *watch)
    addItemFromSession(watch);
 }
 
+void WatchTool::signalsGeneralEnable()
+{
+   connect(this, SIGNAL(allItemsEnable(bool)),
+           this, SLOT(enableAllItems(bool)));
+}
+
+void WatchTool::signalsEnable(Watch *watch)
+{
+   connect(watch,SIGNAL(deleteWatch(int)),
+            this,SLOT(deleteItem(int)));
+   connect(watch,SIGNAL(enableWatch(bool)),
+            this,SLOT(enableItem(bool)));
+}
+
+
 void WatchTool::enableAllItems(bool checked)
 {
    sm->enableAllWatchs(checked);

@@ -4,7 +4,6 @@
 #include <QWidget>
 #include <QAbstractItemModel>
 
-
 namespace Ui {
 class WatchView;
 }
@@ -16,11 +15,18 @@ class WatchView : public QWidget
 public:
     explicit WatchView(QWidget *parent = 0);
     ~WatchView();
-    void addAlarm(QVariant data);
+    void addAlarm(QAbstractItemModel *sm, int row);
 
 private:
-    Ui::WatchView *ui;
     QAbstractItemModel *wm;
+    Ui::WatchView *ui;
+
+private slots:
+    void on_watchClicked(QModelIndex index);
+
+signals:
+    void watchSelected(int index);
+
 };
 
 #endif // WATCHVIEW_H

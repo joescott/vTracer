@@ -13,8 +13,9 @@ public:
     void itemDelDefinition(int index);
     void addFilterFromSession(Filter *filter);
     void signalsEnable(Filter *filter);
+    void signalsGeneralEnable();
 
-private slots:
+public slots:
     void enableAllItems(bool checked);
 };
 

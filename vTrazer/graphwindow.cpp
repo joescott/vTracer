@@ -3,8 +3,8 @@
 
 GraphWindow::GraphWindow(int index,QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::GraphWindow),
-    index(index)
+    index(index),
+    ui(new Ui::GraphWindow)
 {
     ui->setupUi(this);
 }
@@ -16,5 +16,6 @@ GraphWindow::~GraphWindow()
 
 void GraphWindow::closeEvent(QCloseEvent *event)
 {
+    Q_UNUSED(event);
     emit closed(this);
 }

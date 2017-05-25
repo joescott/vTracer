@@ -6,6 +6,7 @@
 
 QAbstractItemModel *GeneralParserModel::createModel(QWidget *parent)
 {
+    Q_UNUSED(parent);
     QStandardItemModel *model = new QStandardItemModel(0, 2);
 
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Data1"));

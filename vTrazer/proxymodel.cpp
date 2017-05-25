@@ -48,4 +48,3 @@ void ProxyModel::refreshModel()
 {
     invalidateFilter();
 }
-

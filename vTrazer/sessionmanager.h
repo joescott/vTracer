@@ -39,6 +39,7 @@ public:
 
     void saveSession(QString file);
     void openSession(QString file);
+    void buttonsEnable(bool status);
 
 
     //Begin     --- Filters
@@ -66,15 +67,19 @@ signals:
     void sessionClear();
     void addFilterFromSession(Filter *filter);
     void addWatchFromSession(Watch *watch);
+    void endLoadSession();
 
 private slots:
     void on_saveButton_clicked();
 
     void on_openButton_clicked();
 
+    void on_selectButton_clicked();
+
 public slots:
     void filtersChanged();
     void watchsChanged();
+    void endAction();
 
 private:
     Ui::SessionManager  * ui;

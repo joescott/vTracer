@@ -23,6 +23,7 @@ public:
                     int type = 0, QWidget *parent = 0);
     ~Watch();
     void setIndex(int idx);
+    int  getIndex(){ return index;}
 
     QList<ColumnFilter *>   colFilters;
     int                     type;

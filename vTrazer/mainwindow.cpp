@@ -61,6 +61,7 @@ MainWindow::MainWindow(QSettings *qs,QWidget *parent) :
     filterTool->addTypes(rapp.getFilters());
     connect(filterTool,SIGNAL(itemsChanged()),
             this,SLOT(filtersChanged()));
+    filterTool->signalsGeneralEnable();
     toolBox.addItem(filterTool,QIcon(":img/filter"),tr("Filters"));
 
     // Watches
@@ -110,7 +111,9 @@ MainWindow::MainWindow(QSettings *qs,QWidget *parent) :
     connect(&sm,SIGNAL(sessionClear()),
             this,SLOT(sessionClear()));
     connect(&sm,SIGNAL(addFilterFromSession(Filter*)),
-            this,SLOT(addFilterFromSession(Filter*)));
+            this,SLOT(addFilterFromSession(Filter*)),Qt::QueuedConnection);
+    connect(&sm,SIGNAL(addWatchFromSession(Watch*)),
+            this,SLOT(addWatchFromSession(Watch*)),Qt::QueuedConnection);
 
     connect(&rapp,SIGNAL(appReadyRead(QByteArray ,int)),
             this,SLOT(watchTrigger(QByteArray ,int)));
@@ -125,6 +128,9 @@ MainWindow::MainWindow(QSettings *qs,QWidget *parent) :
             this,SLOT(appEndReadFile()));
     connect(&rapp,SIGNAL(appReadyLines(int ,int)),
             this,SLOT(appReadyLines(int ,int)));
+
+    connect(watchView,SIGNAL(watchSelected(int)),
+            this,SLOT(watchSelected(int)));
 
 }
 
@@ -145,6 +151,7 @@ void MainWindow::openAtResult(QWidget *w, QString str)
 
     ui->ResultFrame->setVisible(true);
     ui->actionViewResult->setChecked(true);
+    w->setFocus();
 }
 
 void MainWindow::About()
@@ -271,6 +278,7 @@ void MainWindow::appEndReadFile()
 /******************************************************************************/
 void MainWindow::appReadyRead(QByteArray line, int row)
 {
+    Q_UNUSED(row);
     out.append(line);
     //openAtResult(&out,tr("App Output"));
     //ui->actionOutput->setChecked(true);
@@ -375,6 +383,7 @@ void MainWindow::on_backSearch_clicked()
 void MainWindow::sessionClear()
 {
   filterTool->deleteAllItems();
+  watchTool->deleteAllItems();
 }
 
 /******************************************************************************/
@@ -403,13 +412,21 @@ void MainWindow::watchsChanged()
     proxyModel->refreshModel();
 }
 
-void MainWindow::addWatchFromSession(Filter *filter)
+void MainWindow::addWatchFromSession(Watch *watch)
 {
-    watchTool->addItemFromSession(filter);
+    watchTool->addItemFromSession(watch);
+    watchTool->signalsEnable(watch);
+}
+
+void MainWindow::watchSelected(int row)
+{
+    QModelIndex pIndex = proxyModel->mapFromSource(sourceModel->index(row,0));
+    ui->tableView->selectRow(pIndex.row());
 }
 
 void MainWindow::watchTrigger(QByteArray line, int row)
 {
+    Q_UNUSED(line);
 #if 1
     QList<Watch *> wlist = sm.watchs;
     QList<ColumnFilter *> cflist;
@@ -428,24 +445,22 @@ void MainWindow::watchTrigger(QByteArray line, int row)
             QString s = sm.sm->data(m).toString();
             QRegularExpression re(cf->getRegExpStr(),
                                   cf->getFilterCaseSencitive()?
-                                      QRegularExpression::NoPatternOption:
-                                      QRegularExpression::CaseInsensitiveOption);
+                                          QRegularExpression::NoPatternOption:
+                                          QRegularExpression::CaseInsensitiveOption);
             QRegularExpressionMatch match = re.match(s);
             prtn &= match.hasMatch();
         }
         if(prtn)
         {
-            watchView->addAlarm(line);
+            watchView->addAlarm(sm.sm, row);
+            openAtResult(watchView,tr("Watch View"));
             //out.append(line.append(">>>>ALARMA"));
         }
-
-
     }
 #endif
 
 }
 
 // End Filters
-
 
 

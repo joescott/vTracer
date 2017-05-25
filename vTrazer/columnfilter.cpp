@@ -66,15 +66,18 @@ void ColumnFilter::setRegExpStr(QString regexp)
 
 void ColumnFilter::on_RegExp_textChanged(const QString &arg1)
 {
+    Q_UNUSED(arg1);
     emit columnfilterChanged();
 }
 
 void ColumnFilter::on_FilterColumn_currentIndexChanged(int index)
 {
+    Q_UNUSED(index);
     emit columnfilterChanged();
 }
 
 void ColumnFilter::on_CaseSencitive_clicked(bool checked)
 {
+    Q_UNUSED(checked);
     emit columnfilterChanged();
 }

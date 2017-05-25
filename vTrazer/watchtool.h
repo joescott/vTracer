@@ -12,8 +12,10 @@ public:
     QWidget *itemAddDefinition(int index);
     void itemDelDefinition(int index);
     void addWatchFromSession(Watch *watch);
+    void signalsGeneralEnable();
+    void signalsEnable(Watch *watch);
 
-private slots:
+public slots:
     void enableAllItems(bool checked);
 };
 

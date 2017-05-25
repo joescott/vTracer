@@ -10,8 +10,9 @@
 
 void MessageOutput(QtMsgType type, const QMessageLogContext &, const QString & str)
 {
-        const char * msg = str.toStdString().c_str();
-    switch (type) {
+    const char * msg = str.toStdString().c_str();
+    switch((int)type)
+    {
         case QtDebugMsg:
             fprintf(stdout, "Debug: %s\n", msg);
             break;

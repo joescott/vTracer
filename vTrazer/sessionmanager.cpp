@@ -22,7 +22,11 @@ SessionManager::SessionManager(QSettings *qs,QWidget *parent) :
     fsModel->setRootPath(util::directoryOf(SESSION_PATH).absolutePath());
     completer->setModel(fsModel);
     ui->sessionFile->setCompleter(completer);
+    ui->sessionFile->setText(m_qs->value(CF_SESSION_FILE).toString());
     this->hide();
+
+    connect(this,SIGNAL(endLoadSession()),
+            this,SLOT(endAction()),Qt::QueuedConnection);
 }
 
 SessionManager::~SessionManager()
@@ -33,6 +37,8 @@ SessionManager::~SessionManager()
 void SessionManager::saveSession(QString file)
 {
     QSettings set(file, QSettings::IniFormat);
+
+    buttonsEnable(false);
 
     set.clear();
 
@@ -64,34 +70,74 @@ void SessionManager::saveSession(QString file)
        set.endArray();
     }
     set.endArray();
+    //Watchs
+    set.beginWriteArray(WATCH_DFT_ARRAY);
+    QList<ColumnFilter *> cwlist;
+
+    for(int i = 0; i < watchs.count(); ++i)
+    {
+       Watch *w = watchs.at(i);
+       set.setArrayIndex(i);
+       set.setValue(WATCH_DFT_INDEX,  w->getIndex());
+       set.setValue(WATCH_DFT_STATUS, w->isEnabled());
+       set.setValue(WATCH_DFT_TYPE,   w->type);
+
+       cwlist = w->colFilters;
+       set.beginWriteArray(WATCH_CONDITION_DFT_ARRAY);
+       for(int c = 0; c < cwlist.count(); ++c)
+       {
+           ColumnFilter *cf = cwlist.at(c);
+           set.setArrayIndex(c);
+           set.setValue(WATCH_DFT_COLINDEX,        cf->getFilterColIndex());
+           set.setValue(WATCH_DFT_REGSTR,          cf->getRegExpStr());
+           set.setValue(WATCH_DFT_CASESENCITIVE,   cf->getFilterCaseSencitive());
+       }
+       set.endArray();
+    }
+    set.endArray();
+    emit endLoadSession();
+}
+
+void SessionManager::endAction()
+{
+   buttonsEnable(true);
+}
+
+void SessionManager::buttonsEnable(bool status)
+{
+    ui->openButton->setEnabled(status);
+    ui->saveButton->setEnabled(status);
 }
 
 void SessionManager::openSession(QString file)
 {
-   QSettings set(file, QSettings::IniFormat);
+    QSettings set(file, QSettings::IniFormat);
 
-   int fsize, cfsize;
+    int fsize, cfsize, wsize, cwsize;
 
-   if(m_qs->value(CF_APP_PARSER).toString()
-           .compare(set.value(PARSER_DFT_TYPE).toString()))
-   {
-         QMessageBox::warning(this, PROGRAM_NAME,
-                               tr("Wrong model type!\n Actual model is %1 and"
-                                  "you are trying to load %2 type.")
-                              .arg(m_qs->value(CF_APP_PARSER).toString())
-                              .arg(set.value(PARSER_DFT_TYPE).toString()),
-                              QMessageBox::Ok);
+    if(m_qs->value(CF_APP_PARSER).toString()
+                    .compare(set.value(PARSER_DFT_TYPE).toString()))
+    {
+        QMessageBox::warning(this, PROGRAM_NAME,
+                             tr("Wrong model type!\n Actual model is %1 and"
+                                "you are trying to load %2 type.")
+                             .arg(m_qs->value(CF_APP_PARSER).toString())
+                             .arg(set.value(PARSER_DFT_TYPE).toString()),
+                             QMessageBox::Ok);
         return;
-   }
-   emit sessionClear();
+    }
+    buttonsEnable(false);
 
-   //Filters
-   filters.clear();
+    // UI Clear
+    emit sessionClear();
 
-   fsize = set.beginReadArray(FILTER_DFT_ARRAY);
-   QList<ColumnFilter *> cflist;
-   for(int i = 0; i < fsize; ++i)
-   {
+    // Filters
+    filters.clear();
+
+    fsize = set.beginReadArray(FILTER_DFT_ARRAY);
+    QList<ColumnFilter *> cflist;
+    for(int i = 0; i < fsize; ++i)
+    {
         int filter_type = set.value(QString("%1/%2").arg(i+1).arg(FILTER_DFT_TYPE)).toInt();
         ModelFilterDefinition mfd = rapp->getFilterDefinition(filter_type);
         Filter *f = new Filter(&mfd, this);
@@ -116,6 +162,38 @@ void SessionManager::openSession(QString file)
     }
     set.endArray();
 
+    // Watches
+    watchs.clear();
+
+    wsize = set.beginReadArray(WATCH_DFT_ARRAY);
+    QList<ColumnFilter *> cwlist;
+    for(int i = 0; i < wsize; ++i)
+    {
+        int watch_type = set.value(QString("%1/%2").arg(i+1).arg(WATCH_DFT_TYPE)).toInt();
+        ModelWatchDefinition mwd = rapp->getWatchDefinition(watch_type);
+        Watch *w = new Watch(&mwd, this);
+        addWatch(w);
+        set.setArrayIndex(i);
+        w->setIndex(set.value(WATCH_DFT_INDEX).toInt());
+        w->watchEnable(set.value(WATCH_DFT_STATUS).toBool());
+        w->type = watch_type;
+
+        cwlist = w->colFilters;
+        cwsize = set.beginReadArray(WATCH_CONDITION_DFT_ARRAY);
+        for(int c = 0; c < cwsize; ++c)
+        {
+            ColumnFilter *cf = cwlist.at(c);
+            int ci = c+1;
+            cf->setFilterColIndex(set.value(QString("%1/%2").arg(ci).arg(WATCH_DFT_COLINDEX)).toInt());
+            cf->setRegExpStr(set.value(QString("%1/%2").arg(ci).arg(WATCH_DFT_REGSTR)).toString());
+            cf->setFilterCaseSencitive(set.value(QString("%1/%2").arg(ci).arg(WATCH_DFT_CASESENCITIVE)).toBool());
+        }
+        set.endArray();
+        emit addWatchFromSession(w);
+    }
+
+    set.endArray();
+    emit endLoadSession();
 }
 
 /**
@@ -220,19 +298,44 @@ void SessionManager::watchsChanged()
  */
 void SessionManager::on_saveButton_clicked()
 {
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
-                                                    util::directoryOf(SESSION_PATH).absolutePath(),
-                                                    tr("Session Files (*)"));
-    ui->sessionFile->setText(fileName);
-    saveSession(ui->sessionFile->text());
-}
+    QString fileName = ui->sessionFile->text();
+    if(!fileName.isEmpty())
+    {
+        saveSession(fileName);
+        m_qs->setValue(CF_SESSION_FILE, fileName);
+    }else
+         QMessageBox::warning(this, PROGRAM_NAME,
+                               tr("Can't save session file. Session Filename is empty."),
+                              QMessageBox::Ok);
 
+}
 
 void SessionManager::on_openButton_clicked()
 {
-     QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),
+    QString fileName = ui->sessionFile->text();
+    if(!fileName.isEmpty())
+    {
+        openSession(fileName);
+        ui->sessionFile->setText(fileName);
+        m_qs->setValue(CF_SESSION_FILE, fileName);
+    }else
+         QMessageBox::warning(this, PROGRAM_NAME,
+                               tr("Can't open session file. Session Filename is empty."),
+                              QMessageBox::Ok);
+
+}
+
+void SessionManager::on_selectButton_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Select File"),
                                                     util::directoryOf(SESSION_PATH).absolutePath(),
                                                     tr("Session Files (*)"));
-    ui->sessionFile->setText(fileName);
-    openSession(fileName);
+    if(!fileName.isEmpty())
+    {
+        ui->sessionFile->setText(fileName);
+    }else
+         QMessageBox::warning(this, PROGRAM_NAME,
+                               tr("Can't select File. Session Filename is empty."),
+                              QMessageBox::Ok);
+
 }
