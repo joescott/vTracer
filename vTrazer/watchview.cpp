@@ -21,7 +21,7 @@ WatchView::WatchView(QWidget *parent) :
     ui->watchView->setModel(model);
     ui->watchView->setColumnWidth(0,70);
     ui->watchView->setColumnWidth(1,160);
-    //ui->watchView->setColumnHidden(2,true);
+    ui->watchView->setColumnHidden(2,true); // Hidding IX column
 
     connect(ui->watchView,SIGNAL(doubleClicked(QModelIndex)),
             this,SLOT(on_watchClicked(QModelIndex)));
@@ -40,7 +40,7 @@ void WatchView::on_watchClicked(QModelIndex index)
     emit watchSelected(a.toInt());
 }
 
-void WatchView::addAlarm(QAbstractItemModel *sm, int row)
+void WatchView::addAlarm(QAbstractItemModel *sm, QByteArray line, int row)
 {
     Q_UNUSED(sm);
     QDateTime local(QDateTime::currentDateTime());
@@ -49,5 +49,5 @@ void WatchView::addAlarm(QAbstractItemModel *sm, int row)
     wm->setData(wm->index(ncol, 0),ncol);
     wm->setData(wm->index(ncol, 1),local.toString("yyyy/MM/dd HH:mm:ss.zzz"));
     wm->setData(wm->index(ncol, 2),row);
-    wm->setData(wm->index(ncol, 3),row);
+    wm->setData(wm->index(ncol, 3),line);
 }

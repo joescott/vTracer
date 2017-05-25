@@ -15,7 +15,7 @@ class WatchView : public QWidget
 public:
     explicit WatchView(QWidget *parent = 0);
     ~WatchView();
-    void addAlarm(QAbstractItemModel *sm, int row);
+    void addAlarm(QAbstractItemModel *sm, QByteArray line, int row);
 
 private:
     QAbstractItemModel *wm;

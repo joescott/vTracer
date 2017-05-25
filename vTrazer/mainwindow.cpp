@@ -452,7 +452,7 @@ void MainWindow::watchTrigger(QByteArray line, int row)
         }
         if(prtn)
         {
-            watchView->addAlarm(sm.sm, row);
+            watchView->addAlarm(sm.sm, line, row);
             openAtResult(watchView,tr("Watch View"));
             //out.append(line.append(">>>>ALARMA"));
         }
