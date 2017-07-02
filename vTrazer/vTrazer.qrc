@@ -23,5 +23,6 @@
         <file alias="wcascade">img/application-cascade-icon.png</file>
         <file alias="wtile">img/application-tile-vertical-icon.png</file>
         <file alias="company">img/rkh.png</file>
+        <file>img/clean.png</file>
     </qresource>
 </RCC>

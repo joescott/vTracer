@@ -3,19 +3,7 @@
 # Project created by QtCreator 2013-02-24T17:19:55
 #
 #-------------------------------------------------
-#include(../third_party/common/common.pri)
-#include(../third_party/5waybutton/5waybutton.pri)
-#include(../third_party/basicdialgauge/basicdialgauge.pri)
-#include(../third_party/basicgraph/basicgraph.pri)
-#include(../third_party/multislider/multislider.pri)
-#include(../third_party/scrolldial/scrolldial.pri)
-#include(../third_party/scrollwheel/scrollwheel.pri)
-#include(../third_party/svgbutton/svgbutton.pri)
-#include(../third_party/svgdialgauge/svgdialgauge.pri)
-#include(../third_party/svgslideswitch/svgslideswitch.pri)
-#include(../third_party/svgtoggleswitch/svgtoggleswitch.pri)
-
-QT       += core gui svg
+QT       += core gui svg charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -41,7 +29,10 @@ SOURCES += main.cpp\
     watch.cpp \
     watchview.cpp \
     grapher.cpp \
-    graphwindow.cpp
+    graphwindow.cpp \
+    scatterwidget.cpp \
+    rkheventview.cpp \
+    callout.cpp
 
 HEADERS  += mainwindow.h \
     def.h \
@@ -67,7 +58,11 @@ HEADERS  += mainwindow.h \
     actioninterface.h \
     watchview.h \
     grapher.h \
-    graphwindow.h
+    graphwindow.h \
+    scatterwidget.h \
+    callout.h \
+    rkheventview.h \
+    eventserie.h
 
 FORMS    += mainwindow.ui \
     generalconf.ui \

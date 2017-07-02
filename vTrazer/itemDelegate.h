@@ -40,10 +40,11 @@ public:
     {
         return NULL;
     }
-
+#if 0
     QSize sizeHint ( const QStyleOptionViewItem &/* option */, const QModelIndex &/* index */ ) const
     {
         return QSize(50,16);
     }
+#endif
 };
 #endif // ITEMDELEGATE_H

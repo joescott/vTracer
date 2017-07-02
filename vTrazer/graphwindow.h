@@ -2,6 +2,7 @@
 #define GRAPHWINDOW_H
 
 #include <QWidget>
+#include "sessionmanager.h"
 
 namespace Ui {
 class GraphWindow;
@@ -13,7 +14,7 @@ class GraphWindow : public QWidget
     
 public:
     int index;
-    explicit GraphWindow(int index, QWidget *parent = 0);
+    explicit GraphWindow(int index, SessionManager *sm, QWidget *parent = 0);
     ~GraphWindow();
 
     void closeEvent(QCloseEvent *event);
@@ -25,6 +26,8 @@ private:
 signals:
     void closed(GraphWindow *w);
 
+protected:
+    SessionManager  *sm;
 
 };
 #endif // GRAPHWINDOW_H

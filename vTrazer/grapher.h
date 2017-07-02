@@ -13,7 +13,7 @@ class Grapher : public QWidget
     Q_OBJECT
     
 public:
-    explicit Grapher(QWidget *parent = 0);
+    explicit Grapher(SessionManager *sm, QWidget *parent = 0 );
     ~Grapher();
 
 
@@ -32,6 +32,10 @@ private:
     Ui::Grapher *ui;
 
     void createSubWindow();
+
+protected:
+    SessionManager  *sm;
+
 };
 
 #endif // GRAPHER_H

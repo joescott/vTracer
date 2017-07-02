@@ -66,6 +66,8 @@ public slots:
     void watchsChanged();
     void watchTrigger(QByteArray line, int row);
     void watchSelected(int row);
+    void gen_filter();
+    void gen_watch();
 
 private slots:
     void on_actionConfigure_triggered();
@@ -89,6 +91,8 @@ private slots:
     void on_actionWatch_triggered();
 
     void on_actionGraph_triggered();
+
+    void on_customContextMenu(const QPoint& _point);
 
 protected:
      void closeEvent(QCloseEvent *event);

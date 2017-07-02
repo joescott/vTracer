@@ -5,9 +5,10 @@
 #include <QMdiSubWindow>
 #include <QtGui>
 
-Grapher::Grapher(QWidget *parent) :
+Grapher::Grapher(SessionManager *sm, QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Grapher)
+    ui(new Ui::Grapher),
+    sm(sm)
 {
     ui->setupUi(this);
     ui->graphertoolButton->addAction(ui->actionCascade);
@@ -25,7 +26,7 @@ Grapher::~Grapher()
 void Grapher::createSubWindow()
 {
     static int cnt;
-    GraphWindow *w = new GraphWindow(cnt);
+    GraphWindow *w = new GraphWindow(cnt, sm);
     w->setWindowTitle(tr("Graph %1").arg(cnt));
     ui->mdiArea->addSubWindow(w);
     ui->graphList->addItem(tr("Graph %1").arg(cnt));
@@ -34,7 +35,7 @@ void Grapher::createSubWindow()
     connect(w,SIGNAL(closed(GraphWindow *)),
             this,SLOT(on_subWindowsClosed(GraphWindow *)));
 
-    w->show();
+    w->showMaximized();
 
     if(ui->actionCascade->isChecked())
         ui->mdiArea->cascadeSubWindows();

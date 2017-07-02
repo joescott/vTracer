@@ -24,6 +24,8 @@ private:
 private slots:
     void on_watchClicked(QModelIndex index);
 
+    void on_cleanWatchButton_clicked();
+
 signals:
     void watchSelected(int index);
 

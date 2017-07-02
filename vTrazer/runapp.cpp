@@ -18,7 +18,6 @@ RunApp::RunApp(QSettings *pqs, QWidget *parent) :
 
     qp = new QProcess(this);
 
-
     QState *offLineState = new QState();
     QState *onLineState = new QState();
     onLineState->setObjectName("onLineState");

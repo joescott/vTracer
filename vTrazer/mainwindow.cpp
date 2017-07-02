@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 
 #include "def.h"
@@ -11,12 +11,12 @@
 #include "proxymodel.h"
 #include "itemDelegate.h"
 
-//#include "qtsvgdialgauge.h"
 
 #include <QStateMachine>
 #include <QMessageBox>
 #include <QtGui>
 #include <QFileDialog>
+#include <QWidgetAction>
 
 
 MainWindow::MainWindow(QSettings *qs,QWidget *parent) :
@@ -71,17 +71,6 @@ MainWindow::MainWindow(QSettings *qs,QWidget *parent) :
             this,SLOT(watchsChanged()));
     toolBox.addItem(watchTool,QIcon(":img/watch"),tr("Watchs"));
 
-#if 0
-    QtSvgDialGauge *gauge = new QtSvgDialGauge;
-    gauge->setSkin("Tachometer");
-    gauge->setNeedleOrigin(0.486, 0.466);
-    gauge->setMinimum(0);
-    gauge->setMaximum(100);
-    gauge->setStartAngle(-125);
-    gauge->setEndAngle(125);
-    toolBox.addItem(gauge,QIcon(":img/watch"),tr("Gaugue"));
-#endif
-
     ui->ToolsDockWidget->setWidget(&toolBox);
 
 
@@ -93,7 +82,7 @@ MainWindow::MainWindow(QSettings *qs,QWidget *parent) :
     /**
      * Grapher
      */
-    grapher = new Grapher();
+    grapher = new Grapher(&sm);
 
     /**
      * Set View
@@ -101,6 +90,13 @@ MainWindow::MainWindow(QSettings *qs,QWidget *parent) :
     ItemDelegate *delegate = new ItemDelegate();
     ui->tableView->setItemDelegate(delegate);
     ui->tableView->setModel(proxyModel);
+    for(int i=0; i<proxyModel->columnCount(); i++)
+        if(proxyModel->headerData(i, Qt::Horizontal, Qt::DisplayRole).toString().indexOf("_id_") == 0)
+            ui->tableView->setColumnHidden(i, false);
+
+    ui->tableView->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(ui->tableView, SIGNAL(customContextMenuRequested( const QPoint& )),
+    this, SLOT(on_customContextMenu( const QPoint& )));
 
     /**
      *  SLOT & SIGNALS
@@ -137,6 +133,65 @@ MainWindow::MainWindow(QSettings *qs,QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::on_customContextMenu( const QPoint &_point )
+{
+    QPoint      pos   = ui->tableView->mapToGlobal(_point);
+    QModelIndex index = ui->tableView->currentIndex();
+    //int         row   = index.row();
+    if(index.row() < 0)
+        return;
+    int         col   = index.column();
+    QString st = ui->tableView->model()->data(index).toString();
+    QString header = ui->tableView->model()->headerData(col,Qt::Horizontal).toString();
+
+    QMenu menu;
+    QAction *action_genFilter = new QAction(QIcon(":img/filter"),tr("&Generate Filter %1 = %2").arg(header,st), this);
+    connect(action_genFilter, SIGNAL(triggered()),this,SLOT(gen_filter()));
+    menu.addAction(action_genFilter);
+    QAction *action_genWatch = new QAction(QIcon(":img/watch"),tr("&Generate Watch %1 = %2").arg(header,st), this);
+    connect(action_genWatch, SIGNAL(triggered()),this,SLOT(gen_watch()));
+    menu.addAction(action_genWatch);
+    menu.exec(pos);
+}
+
+void MainWindow::gen_filter()
+{
+    QModelIndex index = ui->tableView->currentIndex();
+    //int row = ui->tableView->selectionModel()->currentIndex().row();
+    //int col = ui->tableView->selectionModel()->currentIndex().column();
+
+    QString st = ui->tableView->model()->data(index).toString();
+    ModelFilterDefinition mfd = sm.rapp->getFilterDefinition(0);
+    Filter *f = new Filter(&mfd, &sm);
+    sm.addFilter(f);
+    QList<ColumnFilter *> cflist = f->colFilters;
+
+    ColumnFilter *cf = cflist.at(0);
+    cf->setFilterColIndex(index.column());
+    cf->setRegExpStr(st);
+    cf->setFilterCaseSencitive(true);
+    emit addFilterFromSession(f);
+}
+
+void MainWindow::gen_watch()
+{
+    QModelIndex index = ui->tableView->currentIndex();
+    //int row = ui->tableView->selectionModel()->currentIndex().row();
+    //int col = ui->tableView->selectionModel()->currentIndex().column();
+
+    QString st = ui->tableView->model()->data(index).toString();
+    ModelWatchDefinition mwd = sm.rapp->getWatchDefinition(0);
+    Watch *w = new Watch(&mwd, &sm);
+    sm.addWatch(w);
+    QList<ColumnFilter *> cflist = w->colFilters;
+
+    ColumnFilter *cf = cflist.at(0);
+    cf->setFilterColIndex(index.column());
+    cf->setRegExpStr(st);
+    cf->setFilterCaseSencitive(true);
+    emit addWatchFromSession(w);
 }
 
 void MainWindow::openAtResult(QWidget *w, QString str)
@@ -280,8 +335,7 @@ void MainWindow::appReadyRead(QByteArray line, int row)
 {
     Q_UNUSED(row);
     out.append(line);
-    //openAtResult(&out,tr("App Output"));
-    //ui->actionOutput->setChecked(true);
+    ui->tableView->resizeRowToContents(row);
     ui->tableView->scrollToBottom();
 }
 
@@ -394,6 +448,7 @@ void MainWindow::sessionClear()
 void MainWindow::filtersChanged()
 {
     proxyModel->refreshModel();
+    ui->tableView->resizeRowsToContents();
 }
 
 void MainWindow::addFilterFromSession(Filter *filter)
@@ -410,6 +465,7 @@ void MainWindow::addFilterFromSession(Filter *filter)
 void MainWindow::watchsChanged()
 {
     proxyModel->refreshModel();
+    ui->tableView->resizeRowsToContents();
 }
 
 void MainWindow::addWatchFromSession(Watch *watch)

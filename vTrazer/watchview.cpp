@@ -51,3 +51,8 @@ void WatchView::addAlarm(QAbstractItemModel *sm, QByteArray line, int row)
     wm->setData(wm->index(ncol, 2),row);
     wm->setData(wm->index(ncol, 3),line);
 }
+
+void WatchView::on_cleanWatchButton_clicked()
+{
+    wm->removeRows(0,wm->rowCount());
+}
