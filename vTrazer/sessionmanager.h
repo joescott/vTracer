@@ -68,18 +68,18 @@ signals:
     void addFilterFromSession(Filter *filter);
     void addWatchFromSession(Watch *watch);
     void endLoadSession();
+    void rowAdded(int row);
 
 private slots:
     void on_saveButton_clicked();
-
     void on_openButton_clicked();
-
     void on_selectButton_clicked();
 
 public slots:
     void filtersChanged();
     void watchsChanged();
     void endAction();
+    void rowAddedTrigger(int row);
 
 private:
     Ui::SessionManager  * ui;

@@ -1,0 +1,9 @@
+
+
+QTabBar::close-button {
+        image: url(:img/close_small);
+        }
+
+QLineEdit#connectCommand {
+        background-color: red;
+        }

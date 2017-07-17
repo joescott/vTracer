@@ -52,6 +52,7 @@ private:
     Grapher                     *grapher;
 
 void openAtResult(QWidget *w, QString str);
+void closeAtResult(QWidget *w, QString str);
 
 public slots:
     void About();
@@ -68,6 +69,7 @@ public slots:
     void watchSelected(int row);
     void gen_filter();
     void gen_watch();
+    void tabClose(int index);
 
 private slots:
     void on_actionConfigure_triggered();
@@ -93,6 +95,12 @@ private slots:
     void on_actionGraph_triggered();
 
     void on_customContextMenu(const QPoint& _point);
+
+    void on_outputQuickButton_toggled(bool checked);
+
+    void on_graphQuickButton_toggled(bool checked);
+
+    void on_watchQuickButton_toggled(bool checked);
 
 protected:
      void closeEvent(QCloseEvent *event);

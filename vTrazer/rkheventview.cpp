@@ -71,7 +71,7 @@ RKHEventView::RKHEventView(SessionManager *sm, QWidget *parent)
     //axisPen.setWidth(2);
     //axisX->setLinePen(axisPen);
     //axisY->setLinePen(axisPen);
-    m_chart->setAnimationOptions(QChart::AllAnimations);
+    //m_chart->setAnimationOptions(QChart::AllAnimations);
 
     m_chart->setAcceptHoverEvents(true);
 
@@ -92,15 +92,15 @@ RKHEventView::RKHEventView(SessionManager *sm, QWidget *parent)
        connect(evt_serie->serie, SIGNAL(hovered(QPointF, bool)), this, SLOT(tooltip(QPointF,bool)));
    }
 #endif
-   connect(sm->pm,SIGNAL(rowsInserted(QModelIndex,int,int)),
-            this,SLOT(up(QModelIndex,int,int)));
+   connect(sm,SIGNAL(rowAdded(int)),this,SLOT(up(int)));
 
     this->setMouseTracking(true);
 }
 
 void RKHEventView::keyPressEvent(QKeyEvent *event)
 {
-    switch (event->key()) {
+    switch (event->key())
+    {
     case Qt::Key_Plus:
         m_chart->zoomIn();
         break;
@@ -118,6 +118,9 @@ void RKHEventView::keyPressEvent(QKeyEvent *event)
         break;
     case Qt::Key_Down:
         m_chart->scroll(0, -10);
+        break;
+    case Qt::Key_0:
+        m_chart->zoomReset();
         break;
     default:
         QGraphicsView::keyPressEvent(event);
@@ -173,12 +176,10 @@ void RKHEventView::tooltip(QPointF point, bool state)
     }
 }
 
-void RKHEventView::up(QModelIndex parent /* unused */, int first, int last/* unused */)
+void RKHEventView::up(int row)
 {
-    Q_UNUSED(parent);
-    Q_UNUSED(last);
     int column = 0;
-    QModelIndex idx = m_sm->pm->index(first-1,column);
-    QVariant data = idx.data(Qt::DisplayRole);
+    QModelIndex idx = m_sm->pm->index(row,column);
+    QVariant data = m_sm->pm->data(idx);
     m_chart->axisX()->setMax(data);
 }

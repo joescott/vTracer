@@ -98,6 +98,8 @@ MainWindow::MainWindow(QSettings *qs,QWidget *parent) :
     connect(ui->tableView, SIGNAL(customContextMenuRequested( const QPoint& )),
     this, SLOT(on_customContextMenu( const QPoint& )));
 
+
+
     /**
      *  SLOT & SIGNALS
      */
@@ -128,6 +130,7 @@ MainWindow::MainWindow(QSettings *qs,QWidget *parent) :
     connect(watchView,SIGNAL(watchSelected(int)),
             this,SLOT(watchSelected(int)));
 
+    connect(ui->ResultTabWidget,SIGNAL(tabCloseRequested(int)),this,SLOT(tabClose(int)));
 }
 
 MainWindow::~MainWindow()
@@ -208,6 +211,23 @@ void MainWindow::openAtResult(QWidget *w, QString str)
     ui->actionViewResult->setChecked(true);
     w->setFocus();
 }
+
+void MainWindow::closeAtResult(QWidget *w, QString str)
+{
+    int index;
+    for(index = 0; index < ui->ResultTabWidget->count();++index)
+        if(!ui->ResultTabWidget->tabText(index).compare(str))
+            break;
+    if(index == ui->ResultTabWidget->count())
+        index = ui->ResultTabWidget->addTab(w,str);
+    ui->ResultTabWidget->setCurrentIndex(index);
+
+    ui->ResultTabWidget->removeTab(index);
+    //ui->ResultFrame->setVisible(false);
+    //ui->actionViewResult->setChecked(false);
+    w->setFocus();
+}
+
 
 void MainWindow::About()
 {
@@ -337,6 +357,7 @@ void MainWindow::appReadyRead(QByteArray line, int row)
     out.append(line);
     ui->tableView->resizeRowToContents(row);
     ui->tableView->scrollToBottom();
+    sm.rowAddedTrigger(row);
 }
 
 void MainWindow::appErrorRead(QByteArray line)
@@ -360,6 +381,57 @@ void MainWindow::on_actionWatch_triggered()
 void MainWindow::on_actionGraph_triggered()
 {
     openAtResult(grapher,tr("Graph View"));
+}
+
+void MainWindow::on_outputQuickButton_toggled(bool checked)
+{
+    if(checked)
+        openAtResult(&out,tr("App Output"));
+    else
+        closeAtResult(&out,tr("App Output"));
+}
+
+void MainWindow::on_graphQuickButton_toggled(bool checked)
+{
+    if(checked)
+        openAtResult(grapher,tr("Graph View"));
+    else
+        closeAtResult(grapher,tr("Graph View"));
+}
+
+void MainWindow::on_watchQuickButton_toggled(bool checked)
+{
+    if(checked)
+        openAtResult(watchView,tr("Watch View"));
+    else
+        closeAtResult(watchView,tr("Watch View"));
+}
+
+void MainWindow::tabClose(int index)
+{
+    Q_UNUSED(index);
+#if 1
+    int idx;
+    QStringList tabs;
+    tabs << tr("App Output") << tr("Watch View") << tr("Graph View");
+    for(idx = 0; idx < ui->ResultTabWidget->count();++idx)
+    {
+        QString str = ui->ResultTabWidget->tabText(idx);
+        int del_indx = tabs.indexOf(str);
+        tabs.removeAt(del_indx);
+    }
+    foreach(QString tab, tabs)
+    {
+       if(!tab.compare(tr("App Output")))
+            ui->outputQuickButton->setChecked(false);
+       else if(!tab.compare(tr("Watch View")))
+            ui->watchQuickButton->setChecked(false);
+       else if(!tab.compare(tr("Graph View")))
+            ui->graphQuickButton->setChecked(false);
+    }
+#endif
+
+
 }
 
 /******************************************************************************/
@@ -517,6 +589,8 @@ void MainWindow::watchTrigger(QByteArray line, int row)
 
 }
 
+
 // End Filters
+
 
 

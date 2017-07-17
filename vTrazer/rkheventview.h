@@ -68,7 +68,7 @@ protected:
 public slots:
     void keepCallout(QPointF point);
     void tooltip(QPointF point, bool state);
-    void up(QModelIndex parent, int first, int last);
+    void up(int row);
 
 
 private:

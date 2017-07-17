@@ -34,6 +34,11 @@ SessionManager::~SessionManager()
     delete ui;
 }
 
+void SessionManager::rowAddedTrigger(int row)
+{
+    emit rowAdded(row);
+}
+
 void SessionManager::saveSession(QString file)
 {
     QSettings set(file, QSettings::IniFormat);

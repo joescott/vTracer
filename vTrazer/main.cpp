@@ -55,6 +55,11 @@ int main(int argc, char *argv[])
     splash->showMessage(QObject::tr("\n\nLoading ..."),
                         Qt::AlignCenter|Qt::AlignBottom,Qt::blue);
 
+    QFile file(":qss/default");
+    file.open(QFile::ReadOnly);
+    QString styleSheet = QLatin1String(file.readAll());
+    a.setStyleSheet(styleSheet);
+
     MainWindow *w = new MainWindow(&settings);
     w->show();
 

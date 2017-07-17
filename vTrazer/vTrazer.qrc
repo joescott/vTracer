@@ -11,7 +11,7 @@
         <file alias="tools">img/Toolbox-icon.png</file>
         <file alias="genconfig">img/app-settings-icon.png</file>
         <file alias="watch">img/Puppy-10-icon.png</file>
-        <file>img/arrow-down-icon.png</file>
+        <file alias="down">img/arrow-down-icon.png</file>
         <file alias="splash">img/splash.png</file>
         <file alias="manual">img/Moleskine-Book-icon.png</file>
         <file alias="close">img/close.png</file>
@@ -23,6 +23,11 @@
         <file alias="wcascade">img/application-cascade-icon.png</file>
         <file alias="wtile">img/application-tile-vertical-icon.png</file>
         <file alias="company">img/rkh.png</file>
-        <file>img/clean.png</file>
+        <file alias="clean">img/clean.png</file>
+        <file alias="config">img/Configure_32_32.png</file>
+        <file alias="close_small">img/close_small.png</file>
+    </qresource>
+    <qresource prefix="/qss">
+        <file alias="default">qss/default.qss</file>
     </qresource>
 </RCC>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="es_AR">
-<defaultcodec>UTF-8</defaultcodec>
+<TS version="2.1" language="es_AR">
 <context>
     <name>ColumnFilter</name>
     <message>
@@ -37,22 +36,22 @@
 <context>
     <name>GeneralParserModel</name>
     <message>
-        <location filename="../../vTrazerplugins/generalparsermodel/generalparsermodel.cpp" line="26"/>
+        <location filename="../../vTrazerplugins/generalparsermodel/generalparsermodel.cpp" line="27"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../vTrazerplugins/generalparsermodel/generalparsermodel.cpp" line="26"/>
+        <location filename="../../vTrazerplugins/generalparsermodel/generalparsermodel.cpp" line="27"/>
         <source>State</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../vTrazerplugins/generalparsermodel/generalparsermodel.cpp" line="37"/>
+        <location filename="../../vTrazerplugins/generalparsermodel/generalparsermodel.cpp" line="38"/>
         <source>Default Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../vTrazerplugins/generalparsermodel/generalparsermodel.cpp" line="55"/>
+        <location filename="../../vTrazerplugins/generalparsermodel/generalparsermodel.cpp" line="56"/>
         <source>Default Watch</source>
         <translation type="unfinished"></translation>
     </message>
@@ -104,8 +103,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../grapher.cpp" line="29"/>
-        <location filename="../grapher.cpp" line="31"/>
+        <location filename="../grapher.cpp" line="30"/>
+        <location filename="../grapher.cpp" line="32"/>
         <source>Graph %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -139,12 +138,12 @@
 <context>
     <name>LoadFileProgressBar</name>
     <message>
-        <location filename="../loadfileprogressbar.ui" line="14"/>
-        <source>Dialog</source>
+        <location filename="../loadfileprogressbar.ui" line="23"/>
+        <source>Loading Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../loadfileprogressbar.ui" line="108"/>
+        <location filename="../loadfileprogressbar.ui" line="148"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
@@ -174,169 +173,179 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="191"/>
+        <location filename="../mainwindow.ui" line="197"/>
         <source>Search</source>
         <translation type="unfinished">Buscar</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="228"/>
+        <location filename="../mainwindow.ui" line="234"/>
         <source>Up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="254"/>
+        <location filename="../mainwindow.ui" line="260"/>
         <source>Down</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="261"/>
+        <location filename="../mainwindow.ui" line="267"/>
         <source>...</source>
         <translation type="unfinished">...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="374"/>
+        <location filename="../mainwindow.ui" line="380"/>
         <source>Hide</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="467"/>
+        <location filename="../mainwindow.ui" line="478"/>
+        <source>Output View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="510"/>
+        <source>Graphic View</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="618"/>
         <source>&amp;View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="483"/>
+        <location filename="../mainwindow.ui" line="634"/>
         <source>&amp;Configure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="516"/>
+        <location filename="../mainwindow.ui" line="659"/>
         <source>Tools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="64"/>
+        <location filename="../mainwindow.cpp" line="65"/>
         <source>Filters</source>
         <translation>Filtros</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="553"/>
+        <location filename="../mainwindow.ui" line="696"/>
         <source>Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="573"/>
+        <location filename="../mainwindow.ui" line="716"/>
         <source>About</source>
         <translation type="unfinished">Acerca de</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="581"/>
+        <location filename="../mainwindow.ui" line="724"/>
         <source>&amp;Open</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="589"/>
+        <location filename="../mainwindow.ui" line="732"/>
         <source>&amp;Tools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="592"/>
+        <location filename="../mainwindow.ui" line="735"/>
         <source>Ctrl+T</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="603"/>
+        <location filename="../mainwindow.ui" line="746"/>
         <source>Control &amp;Panel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="606"/>
+        <location filename="../mainwindow.ui" line="749"/>
         <source>Ctrl+P</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="617"/>
+        <location filename="../mainwindow.ui" line="760"/>
         <source>&amp;Result</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="620"/>
+        <location filename="../mainwindow.ui" line="763"/>
         <source>Ctrl+R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="632"/>
+        <location filename="../mainwindow.ui" line="775"/>
         <source>General</source>
         <translation type="unfinished">General</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="644"/>
+        <location filename="../mainwindow.ui" line="787"/>
         <source>Manual</source>
         <translation type="unfinished">Manual</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="656"/>
+        <location filename="../mainwindow.ui" line="799"/>
         <source>Session &amp;Manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="659"/>
+        <location filename="../mainwindow.ui" line="802"/>
         <source>Ctrl+M</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="664"/>
-        <location filename="../mainwindow.ui" line="667"/>
+        <location filename="../mainwindow.ui" line="807"/>
+        <location filename="../mainwindow.ui" line="810"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="676"/>
+        <location filename="../mainwindow.ui" line="819"/>
         <source>Run</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="687"/>
+        <location filename="../mainwindow.ui" line="830"/>
         <source>Show Full Screen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="690"/>
+        <location filename="../mainwindow.ui" line="833"/>
         <source>F11</source>
         <translation type="unfinished">F11</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="695"/>
+        <location filename="../mainwindow.ui" line="838"/>
         <source>Output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="700"/>
+        <location filename="../mainwindow.ui" line="843"/>
         <source>Find</source>
         <translation type="unfinished">Buscar</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="703"/>
+        <location filename="../mainwindow.ui" line="846"/>
         <source>Ctrl+F</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="708"/>
-        <location filename="../mainwindow.cpp" line="71"/>
+        <location filename="../mainwindow.ui" line="851"/>
+        <location filename="../mainwindow.cpp" line="72"/>
         <source>Watchs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="711"/>
+        <location filename="../mainwindow.ui" line="854"/>
         <source>Ctrl+W</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="716"/>
+        <location filename="../mainwindow.ui" line="859"/>
         <source>Graph</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="719"/>
+        <location filename="../mainwindow.ui" line="862"/>
         <source>Ctrl+G</source>
         <translation type="unfinished"></translation>
     </message>
@@ -345,12 +354,12 @@
         <translation type="obsolete">Lavadoras</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="460"/>
+        <location filename="../mainwindow.ui" line="611"/>
         <source>&amp;Help</source>
         <translation>&amp;Ayuda</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="452"/>
+        <location filename="../mainwindow.ui" line="603"/>
         <source>&amp;File</source>
         <translation>&amp;Archivo</translation>
     </message>
@@ -371,7 +380,7 @@
         <translation type="obsolete">Abrir Manual</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="647"/>
+        <location filename="../mainwindow.ui" line="790"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
@@ -390,63 +399,82 @@ Version 1.0</source>
 Version 1.0</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="80"/>
-        <source>Gaugue</source>
+        <location filename="../mainwindow.cpp" line="153"/>
+        <source>&amp;Generate Filter %1 = %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="166"/>
+        <location filename="../mainwindow.cpp" line="156"/>
+        <source>&amp;Generate Watch %1 = %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="250"/>
         <source>Configuration</source>
         <translation type="unfinished">Configuracion</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="172"/>
+        <location filename="../mainwindow.cpp" line="256"/>
         <source>Run Configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="195"/>
+        <location filename="../mainwindow.cpp" line="279"/>
         <source>Session Manager</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="216"/>
+        <location filename="../mainwindow.cpp" line="300"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="220"/>
+        <location filename="../mainwindow.cpp" line="304"/>
         <source>Yes</source>
         <translation type="unfinished">Si</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="222"/>
+        <location filename="../mainwindow.cpp" line="306"/>
         <source>No</source>
         <translation type="unfinished">No</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="236"/>
+        <location filename="../mainwindow.cpp" line="320"/>
         <source>Open vTrazer File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="238"/>
+        <location filename="../mainwindow.cpp" line="322"/>
         <source>vTrazer files (*.log *.vtz);;All files (*)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="281"/>
-        <location filename="../mainwindow.cpp" line="288"/>
+        <location filename="../mainwindow.cpp" line="366"/>
+        <location filename="../mainwindow.cpp" line="373"/>
+        <location filename="../mainwindow.cpp" line="389"/>
+        <location filename="../mainwindow.cpp" line="391"/>
+        <location filename="../mainwindow.cpp" line="416"/>
+        <location filename="../mainwindow.cpp" line="425"/>
         <source>App Output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="293"/>
+        <location filename="../mainwindow.ui" line="542"/>
+        <location filename="../mainwindow.cpp" line="378"/>
+        <location filename="../mainwindow.cpp" line="405"/>
+        <location filename="../mainwindow.cpp" line="407"/>
+        <location filename="../mainwindow.cpp" line="416"/>
+        <location filename="../mainwindow.cpp" line="427"/>
+        <location filename="../mainwindow.cpp" line="584"/>
         <source>Watch View</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="298"/>
+        <location filename="../mainwindow.cpp" line="383"/>
+        <location filename="../mainwindow.cpp" line="397"/>
+        <location filename="../mainwindow.cpp" line="399"/>
+        <location filename="../mainwindow.cpp" line="416"/>
+        <location filename="../mainwindow.cpp" line="429"/>
         <source>Graph View</source>
         <translation type="unfinished"></translation>
     </message>
@@ -530,7 +558,7 @@ Pone a cero el numero de lavados</translation>
         <translation type="obsolete">KUF</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="54"/>
+        <location filename="../main.cpp" line="55"/>
         <source>
 
 Loading ...</source>
@@ -615,8 +643,49 @@ Cargando ...</translation>
         <translation type="obsolete">Error Sinc</translation>
     </message>
     <message>
+        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="10"/>
+        <source>Timestamp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="11"/>
+        <source>Sequence</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="12"/>
         <source>Type</source>
-        <translation type="obsolete">Tipo</translation>
+        <translation type="unfinished">Tipo</translation>
+    </message>
+    <message>
+        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="13"/>
+        <source>Event</source>
+        <translation type="unfinished">Evento</translation>
+    </message>
+    <message>
+        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="14"/>
+        <source>Log</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="15"/>
+        <source>_id_type_FWK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="16"/>
+        <source>_id_type_RQ</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="17"/>
+        <source>_id_type_SM</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="18"/>
+        <source>_id_type_OTHER</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Conf Value Undef</source>
@@ -659,29 +728,17 @@ Cargando ...</translation>
         <translation type="obsolete">Vol. &amp; KUF &amp; Press.</translation>
     </message>
     <message>
-        <location filename="../../vTrazerplugins/generalparsermodel/generalparsermodel.cpp" line="11"/>
+        <location filename="../../vTrazerplugins/generalparsermodel/generalparsermodel.cpp" line="12"/>
         <source>Data1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../vTrazerplugins/generalparsermodel/generalparsermodel.cpp" line="12"/>
-        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="10"/>
+        <location filename="../../vTrazerplugins/generalparsermodel/generalparsermodel.cpp" line="13"/>
         <source>Data2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="11"/>
-        <source>Data3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="12"/>
-        <source>Data4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../watchview.cpp" line="15"/>
-        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="9"/>
         <source>ID</source>
         <translation type="unfinished"></translation>
     </message>
@@ -692,29 +749,43 @@ Cargando ...</translation>
     </message>
     <message>
         <location filename="../watchview.cpp" line="17"/>
-        <source>line</source>
+        <source>IX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../watchview.cpp" line="18"/>
+        <source>Input</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RKHEventView</name>
+    <message>
+        <location filename="../rkheventview.cpp" line="36"/>
+        <source>Events</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RKHParserModel</name>
     <message>
-        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="39"/>
+        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="81"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="39"/>
-        <source>State</source>
+        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="81"/>
+        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="92"/>
+        <source>FWK OBJ</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="50"/>
+        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="101"/>
         <source>Default Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="80"/>
+        <location filename="../../vTrazerplugins/rkhparsermodel/rkhparsermodel.cpp" line="130"/>
         <source>Default Watch</source>
         <translation type="unfinished"></translation>
     </message>
@@ -785,22 +856,22 @@ Cargando ...</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../runapp.ui" line="59"/>
+        <location filename="../runapp.ui" line="68"/>
         <source>Edit Run Command</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../runapp.cpp" line="35"/>
+        <location filename="../runapp.cpp" line="34"/>
         <source>Press to go OnLine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../runapp.cpp" line="40"/>
+        <location filename="../runapp.cpp" line="39"/>
         <source>Press to go OffLine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../runapp.cpp" line="146"/>
+        <location filename="../runapp.cpp" line="145"/>
         <source>Termination Code: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -808,18 +879,33 @@ Cargando ...</translation>
 <context>
     <name>SessionManager</name>
     <message>
-        <location filename="../sessionmanager.ui" line="14"/>
+        <location filename="../sessionmanager.ui" line="20"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sessionmanager.ui" line="54"/>
+        <location filename="../sessionmanager.ui" line="71"/>
+        <source>Ctrl+S</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sessionmanager.ui" line="97"/>
         <source>Session file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sessionmanager.ui" line="61"/>
+        <location filename="../sessionmanager.ui" line="104"/>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <location filename="../sessionmanager.ui" line="117"/>
         <source>Open</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sessionmanager.ui" line="120"/>
+        <source>Ctrl+O</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -828,25 +914,34 @@ Cargando ...</translation>
         <translation type="unfinished">Grabar</translation>
     </message>
     <message>
-        <location filename="../sessionmanager.cpp" line="76"/>
+        <location filename="../sessionmanager.cpp" line="127"/>
         <source>Wrong model type!
  Actual model is %1 andyou are trying to load %2 type.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sessionmanager.cpp" line="218"/>
-        <source>Save File</source>
+        <location filename="../sessionmanager.cpp" line="313"/>
+        <source>Can&apos;t save session file. Session Filename is empty.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../sessionmanager.cpp" line="220"/>
-        <location filename="../sessionmanager.cpp" line="230"/>
+        <location filename="../sessionmanager.cpp" line="328"/>
+        <source>Can&apos;t open session file. Session Filename is empty.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sessionmanager.cpp" line="335"/>
+        <source>Select File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sessionmanager.cpp" line="343"/>
+        <source>Can&apos;t select File. Session Filename is empty.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../sessionmanager.cpp" line="337"/>
         <source>Session Files (*)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../sessionmanager.cpp" line="228"/>
-        <source>Open File</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1069,6 +1164,14 @@ Pruebe otra vez.</translation>
     </message>
 </context>
 <context>
+    <name>configurationContainer</name>
+    <message>
+        <location filename="../configurationcontainer.ui" line="14"/>
+        <source>StackedWidget</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>dockFilter</name>
     <message>
         <source>Report Filtering</source>
@@ -1189,17 +1292,17 @@ Pruebe otra vez.</translation>
 <context>
     <name>generalConf</name>
     <message>
-        <location filename="../generalconf.ui" line="14"/>
+        <location filename="../generalconf.ui" line="20"/>
         <source>Configuration</source>
         <translation type="unfinished">Configuracion</translation>
     </message>
     <message>
-        <location filename="../generalconf.ui" line="50"/>
+        <location filename="../generalconf.ui" line="65"/>
         <source>Language</source>
         <translation type="unfinished">Idioma</translation>
     </message>
     <message>
-        <location filename="../generalconf.ui" line="64"/>
+        <location filename="../generalconf.ui" line="79"/>
         <source>Parser</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1281,22 +1384,22 @@ Pruebe otra vez.</translation>
 <context>
     <name>runConf</name>
     <message>
-        <location filename="../runconf.ui" line="14"/>
+        <location filename="../runconf.ui" line="20"/>
         <source>Configuration</source>
         <translation type="unfinished">Configuracion</translation>
     </message>
     <message>
-        <location filename="../runconf.ui" line="63"/>
+        <location filename="../runconf.ui" line="96"/>
         <source>Application</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../runconf.ui" line="73"/>
+        <location filename="../runconf.ui" line="106"/>
         <source>...</source>
         <translation type="unfinished">...</translation>
     </message>
     <message>
-        <location filename="../runconf.ui" line="89"/>
+        <location filename="../runconf.ui" line="122"/>
         <source>Options</source>
         <translation type="unfinished"></translation>
     </message>

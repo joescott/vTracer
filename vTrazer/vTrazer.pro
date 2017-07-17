@@ -30,9 +30,9 @@ SOURCES += main.cpp\
     watchview.cpp \
     grapher.cpp \
     graphwindow.cpp \
-    scatterwidget.cpp \
     rkheventview.cpp \
-    callout.cpp
+    callout.cpp \
+    configurationcontainer.cpp
 
 HEADERS  += mainwindow.h \
     def.h \
@@ -59,10 +59,10 @@ HEADERS  += mainwindow.h \
     watchview.h \
     grapher.h \
     graphwindow.h \
-    scatterwidget.h \
     callout.h \
     rkheventview.h \
-    eventserie.h
+    eventserie.h \
+    configurationcontainer.h
 
 FORMS    += mainwindow.ui \
     generalconf.ui \
@@ -77,26 +77,11 @@ FORMS    += mainwindow.ui \
     watch.ui \
     watchview.ui \
     grapher.ui \
-    graphwindow.ui
+    graphwindow.ui \
+    configurationcontainer.ui
 
 RESOURCES += \
     vTrazer.qrc
-
-RESOURCES += ../third_party/skins/thermometer_svgdialgauge.qrc \
-    ../third_party/skins/tachometer_svgdialgauge.qrc \
-    ../third_party/skins/amperemeter_svgdialgauge.qrc \
-    ../third_party/skins/beryl_5waybutton.qrc \
-    ../third_party/skins/beryl_multislider.qrc \
-    ../third_party/skins/beryl_svgslideswitch.qrc \
-    ../third_party/skins/beryl_svgbutton.qrc \
-    ../third_party/skins/beryl_svgtoggleswitch.qrc \
-    ../third_party/skins/berylsquare_svgtoggleswitch.qrc \
-    ../third_party/skins/berylsquare_svgbutton.qrc \
-    ../third_party/skins/beryl_scrollwheel.qrc \
-    ../third_party/skins/beryl_scrolldial.qrc \
-    ../third_party/skins/metallicbrush_svgbutton.qrc \
-    ../third_party/skins/metallicbrush_svgslideswitch.qrc \
-    ../third_party/iuskins/iuskins.qrc
 
 OTHER_FILES += \
     conf.ini
