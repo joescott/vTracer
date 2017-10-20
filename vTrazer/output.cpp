@@ -18,7 +18,7 @@ Output::~Output()
 
 void Output::append(QByteArray line)
 {
-    ui->outArea->append(QString(line));
+    ui->outArea->append(QString(line).remove(QRegExp("[\\n\\t\\r]")));
 }
 
 void Output::appendError(QByteArray line)

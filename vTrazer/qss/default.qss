@@ -2,8 +2,13 @@
 
 QTabBar::close-button {
         image: url(:img/close_small);
+        subcontrol-position: right;
         }
 
 QLineEdit#connectCommand {
         background-color: red;
         }
+
+QTabBar::tab {
+        height: 3.5ex;
+}
